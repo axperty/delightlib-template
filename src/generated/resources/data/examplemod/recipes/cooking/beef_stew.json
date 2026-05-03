@@ -2,7 +2,7 @@
   "type": "farmersdelight:cooking",
   "container": {
     "count": 1,
-    "id": "minecraft:bowl"
+    "item": "minecraft:bowl"
   },
   "experience": 1.0,
   "ingredients": [
@@ -19,6 +19,6 @@
   "recipe_book_tab": "meals",
   "result": {
     "count": 1,
-    "id": "examplemod:beef_stew"
+    "item": "examplemod:beef_stew"
   }
 }

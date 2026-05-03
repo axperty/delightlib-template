@@ -1,20 +1,24 @@
 package com.example.examplemod;
 
 import com.axperty.delightlib.api.DelightAddon;
-import net.fabricmc.api.ModInitializer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tiers;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
-public class ExampleMod implements ModInitializer {
+@Mod(ExampleMod.MOD_ID)
+public class ExampleMod {
     public static final String MOD_ID = "examplemod";
     public static DelightAddon addon;
 
-    @Override
-    public void onInitialize() {
+    public ExampleMod() {
+        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+
         // Add-on Name & Creative Tab Registry
-        addon = DelightAddon.create(MOD_ID)
+        addon = DelightAddon.create(MOD_ID, bus)
                 .withCreativeTab("Example Mod", () -> new ItemStack(Items.BREAD));
 
         // Knife
@@ -76,7 +80,5 @@ public class ExampleMod implements ModInitializer {
                         .define('O', "minecraft:oak_log")
                         .define('T', "minecraft:spruce_trapdoor"))
                 .build();
-
-        addon.build();
     }
 }
