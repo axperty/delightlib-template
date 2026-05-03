@@ -5,17 +5,20 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tiers;
 import net.minecraft.world.level.block.SoundType;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 
 @Mod(ExampleMod.MOD_ID)
 public class ExampleMod {
     public static final String MOD_ID = "examplemod";
     public static DelightAddon addon;
 
-    public ExampleMod() {
-        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+    public ExampleMod(IEventBus bus, ModContainer modContainer)
+    {
+        bus.addListener(this::commonSetup);
 
         // Add-on Name & Creative Tab Registry
         addon = DelightAddon.create(MOD_ID, bus)
@@ -81,4 +84,6 @@ public class ExampleMod {
                         .define('T', "minecraft:spruce_trapdoor"))
                 .build();
     }
+
+    private void commonSetup(final FMLCommonSetupEvent event) {}
 }
