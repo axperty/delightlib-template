@@ -1,0 +1,13 @@
+{
+  "block.examplemod.chocolate_cake": "Chocolate Cake",
+  "block.examplemod.cozy_stew": "Cozy Stew",
+  "block.examplemod.garlic_crop": "Garlic Crop",
+  "block.examplemod.oak_log_cabinet": "Oak Log Cabinet",
+  "container.examplemod.oak_log_cabinet": "Oak Log Cabinet",
+  "item.examplemod.beef_stew": "Beef Stew",
+  "item.examplemod.chocolate_cake_slice": "Chocolate Cake Slice",
+  "item.examplemod.cozy_stew_serving": "Cozy Stew Serving",
+  "item.examplemod.garlic": "Garlic",
+  "item.examplemod.obsidian_knife": "Obsidian Knife",
+  "item.examplemod.orange_juice": "Orange Juice"
+}
