@@ -1,7 +1,9 @@
-// 1.21.1	2026-05-03T16:27:41.5577149	Delight Lib: examplemod
+// 1.21.1	2026-05-04T01:04:33.8029029	Delight Lib: examplemod
+527ccef334e4efd4f8e584f9c5da99a445b58c55 assets/examplemod/blockstates/chocolate_cake.json
+6f18344fc37604962268793219715c49d79ae287 assets/examplemod/blockstates/cozy_stew.json
 31cd82da206e1734dd150367df4d6c08109a6568 assets/examplemod/blockstates/garlic_crop.json
 042f5856ed03a452cc2b9c5b001bd95b36dd6815 assets/examplemod/blockstates/oak_log_cabinet.json
-7be87c09505dd1a0201b40f7912ac0430cb0400b assets/examplemod/lang/en_us.json
+7b4b64994bb8b5b7b04ec4ee3965471bbec85851 assets/examplemod/lang/en_us.json
 c6305a04823298b62590037d13cc0c0c2ff1b2f9 assets/examplemod/models/block/garlic_crop_stage0.json
 e288c349d069e8e8810b8784166f473200c4ec81 assets/examplemod/models/block/garlic_crop_stage1.json
 fb498dc42b78506557902bc6d938f2a0e9b50f76 assets/examplemod/models/block/garlic_crop_stage2.json
@@ -13,7 +15,9 @@ b5d4849d121430c5bed801b3fcc5201564c3bfbc assets/examplemod/models/block/garlic_c
 8d10a08be7d89a496ef8ebbd3603cea6732c680e assets/examplemod/models/block/oak_log_cabinet.json
 c4ee95785c93c3ae1401260c9b95bf1f696006ec assets/examplemod/models/block/oak_log_cabinet_open.json
 4b2b8d3f4f66857cd69ba6049f3756fb16e5a0f9 assets/examplemod/models/item/beef_stew.json
+98a982538e00ddc5bb87579e25542387fc5aa9a6 assets/examplemod/models/item/chocolate_cake.json
 2536f88a65111e714c5af6796b4f4c2983f6ad34 assets/examplemod/models/item/chocolate_cake_slice.json
+bd178f06aeb879dbd75bf9b55667dbffaa64aec4 assets/examplemod/models/item/cozy_stew.json
 b9f31e145789738f971ab0c2a86e52f6f92ca636 assets/examplemod/models/item/cozy_stew_serving.json
 8eb3f9f962a531a14ec009b39c7167de0746b733 assets/examplemod/models/item/garlic.json
 f6801eb9705cf1d9f3924b3da0ce2c869f57831c assets/examplemod/models/item/oak_log_cabinet.json

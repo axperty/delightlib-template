@@ -22,6 +22,7 @@ repositories {
     maven {
         url "https://cursemaven.com"
     }
+    maven { url 'https://jitpack.io' }
 }
 
 base {
@@ -80,7 +81,7 @@ configurations {
 dependencies {
     implementation "net.neoforged:neoforge:${neo_version}"
     implementation "curse.maven:farmers-delight-398521:8007613"
-    implementation "curse.maven:delight-lib-1531135:8024474"
+    implementation 'com.github.axperty:delightlib:040ff7d400'
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
