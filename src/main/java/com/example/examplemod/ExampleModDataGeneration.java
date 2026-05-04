@@ -9,8 +9,6 @@ public class ExampleModDataGeneration implements DataGeneratorEntrypoint {
 
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
-        // Initialize the addon data for the generator
-        //ExampleMod.registerAddon();
 
         FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
         DelightAddon addon = ExampleMod.addon;

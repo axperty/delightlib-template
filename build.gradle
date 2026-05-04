@@ -7,7 +7,6 @@ version = project.mod_version
 group = project.maven_group
 
 repositories {
-	maven { url = "https://jitpack.io" }
 	maven { url "https://maven.parchmentmc.org" }
 
 	maven {
@@ -84,7 +83,7 @@ dependencies {
 	}
 
 	modImplementation "curse.maven:farmers-delight-refabricated-993166:7199661"
-	modImplementation "com.github.axperty:delightlib:84c2239534"
+	modImplementation "curse.maven:delight-lib-1531135:8035775"
 }
 
 processResources {
