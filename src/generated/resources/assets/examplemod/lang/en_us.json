@@ -1,15 +1,15 @@
 {
-  "block.examplemod.chocolate_cake": "Chocolate Cake",
-  "block.examplemod.cozy_stew": "Cozy Stew",
-  "block.examplemod.garlic_crop": "Garlic Crop",
-  "block.examplemod.oak_log_cabinet": "Oak Log Cabinet",
-  "container.examplemod.oak_log_cabinet": "Oak Log Cabinet",
-  "item.examplemod.beef_stew": "Beef Stew",
-  "item.examplemod.chocolate_cake": "Chocolate Cake",
-  "item.examplemod.chocolate_cake_slice": "Chocolate Cake Slice",
-  "item.examplemod.cozy_stew": "Cozy Stew",
-  "item.examplemod.cozy_stew_serving": "Cozy Stew Serving",
-  "item.examplemod.garlic": "Garlic",
-  "item.examplemod.obsidian_knife": "Obsidian Knife",
-  "item.examplemod.orange_juice": "Orange Juice"
+  "block.examplemod.example_cabinet": "Example Cabinet",
+  "block.examplemod.example_crop_crop": "Example Crop Crop",
+  "block.examplemod.example_feast": "Example Feast",
+  "block.examplemod.example_pie": "Example Pie",
+  "container.examplemod.example_cabinet": "Example Cabinet",
+  "item.examplemod.example_crop": "Example Crop",
+  "item.examplemod.example_feast": "Example Feast",
+  "item.examplemod.example_feast_serving": "Example Feast Serving",
+  "item.examplemod.example_juice": "Example Juice",
+  "item.examplemod.example_knife": "Example Knife",
+  "item.examplemod.example_pie": "Example Pie",
+  "item.examplemod.example_pie_slice": "Example Pie Slice",
+  "item.examplemod.example_stew": "Example Stew"
 }

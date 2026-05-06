@@ -81,7 +81,8 @@ configurations {
 dependencies {
     implementation "net.neoforged:neoforge:${neo_version}"
     implementation "curse.maven:farmers-delight-398521:8007613"
-    implementation "curse.maven:delight-lib-1531135:8035773"
+    implementation 'com.github.axperty:delightlib:ca3fd14597'
+    //implementation "curse.maven:delight-lib-1531135:8035773"
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
