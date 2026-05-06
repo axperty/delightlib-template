@@ -62,12 +62,15 @@ repositories {
     maven {
         url = "https://www.cursemaven.com"
     }
+    maven {
+        url = "https://jitpack.io"
+    }
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
     implementation fg.deobf("curse.maven:farmers-delight-398521:8007609")
-    implementation fg.deobf("curse.maven:delight-lib-1531135:8035767")
+    implementation fg.deobf("com.github.axperty:delightlib:f5d3060e6f")
 }
 
 tasks.named('processResources', ProcessResources).configure {

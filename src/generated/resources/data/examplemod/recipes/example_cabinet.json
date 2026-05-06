@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "O": {
+      "item": "minecraft:spruce_log"
+    },
+    "T": {
+      "item": "minecraft:spruce_trapdoor"
+    }
+  },
+  "pattern": [
+    "O  ",
+    "T T",
+    "OOO"
+  ],
+  "result": {
+    "count": 1,
+    "item": "examplemod:example_cabinet"
+  }
+}
