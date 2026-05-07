@@ -13,69 +13,85 @@ public class ExampleMod implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        // Add-on Name & Creative Tab Registry
-        addon = DelightAddon.create(MOD_ID)
-                .withCreativeTab("Example Mod", () -> new ItemStack(Items.BREAD));
+        // Creative Tab Registry
+        addon = DelightAddon.create(MOD_ID) // Creates the creative tab
+                .withCreativeTab("Example Mod", // Sets the add-on name in the creative tab
+                        () -> new ItemStack(Items.BREAD)); // Sets a bread item icon
 
-        // Knife
-        addon.knife("obsidian_knife", Tiers.DIAMOND)
-                .attackDamage(1.5f)
-                .attackSpeed(-1.8f)
-                .fireResistant()
-                .build();
+        // Example Knife
+        addon.knife("example_knife", Tiers.DIAMOND) // Creates a knife with diamond stats
+                .attackDamage(1.5f) // Adds extra damage to the base knife damage
+                .attackSpeed(-1.8f) // Sets how fast the weapon swings, negative numbers mean it's slower than an empty hand
+                .fireResistant() // Prevents the item from burning up when dropped into lava or fire
+                .build(); // Registers the item
 
-        // Beef Stew (Default Food Item)
-        addon.food("beef_stew")
-                .nutrition(4)
-                .saturation(0.4f)
-                .build();
+        // Example Stew Default Food Item
+        addon.food("example_stew") // Creates a stew
+                .nutrition(4) // Determines how many hunger points it restores
+                .saturation(0.4f) // Sets the hidden value that keeps a player full longer
+                .build(); // Registers the item
 
-        // Beef Stew (Default Food Item) Cooking Pot Recipe
-        addon.cookingRecipe("beef_stew")
-                .addIngredient("minecraft:cooked_beef")
-                .addIngredient("minecraft:carrot")
-                .addIngredient("minecraft:potato")
-                .result("examplemod:beef_stew")
-                .container("minecraft:bowl")
-                .experience(1.0f)
-                .cookingTime(200)
-                .recipeBookTab("meals")
-                .build();
+        // Example Stew Cooking Pot Recipe
+        addon.cookingRecipe("example_stew") // Creates a new recipe for the cooking pot
+                .addIngredient("minecraft:cooked_beef") // Adds a required ingredient
+                .addIngredient("minecraft:carrot") // Adds a second required ingredient
+                .addIngredient("minecraft:potato") // Adds a third required ingredient
 
-        // Cozy Stew (Placeable Food Item) & Cozy Stew Serving
-        addon.food("cozy_stew_serving").nutrition(6).saturation(0.6f).bowlFood().build();
-        addon.placeableFood("cozy_stew")
-                .asFeast("cozy_stew_serving", true) // true indicates it leaves a container (leftovers)
-                .build();
+                // You're able to add up to six total ingredients for your recipe
 
-        // Orange Juice
-        addon.food("orange_juice")
-                .nutrition(2)
-                .saturation(0.2f)
-                .drinkable() // Sets bottle as remainder and stacks to 16
-                .alwaysEdible()
-                .build();
+                .result("examplemod:example_stew") // Sets the final item you receive when cooking finishes
+                .container("minecraft:bowl") // Requires a specific container to hold the cooked item
+                .experience(1.0f) // Amount of XP received after cooking
+                .cookingTime(200) // Sets the cook duration in ticks, 200 ticks equals 10 seconds
+                .recipeBookTab("meals") // Places this recipe into the meals category in the recipe book
+                .build(); // Registers the recipe
 
-        // Garlic, Garlic Seeds, Garlic Crop
-        addon.crop("garlic")
-                .asFood(1, 0.1f)
-                .seedIsItem()
-                .build();
+        // Example Feast
+        addon.placeableFood("example_feast") // Creates a food item you can place
+                .feast("example_feast_serving", true) // Makes the feast drop servings when right-clicked, 'true' means a container block is left behind
+                .feastOutput("minecraft:bone_meal")
+                .build(); // Registers the block
 
-        // Chocolate Cake & Chocolate Cake Slice
-        addon.food("chocolate_cake_slice").nutrition(3).saturation(0.3f).fast().build();
-        addon.placeableFood("chocolate_cake")
-                .asPie("chocolate_cake_slice")
-                .build();
+        // Example Feast Serving
+        addon.food("example_feast_serving") // Creates a food item
+                .nutrition(6) // Determines how many hunger points it restores
+                .saturation(0.6f) // Sets the hidden value that keeps a player full longer
+                .bowlFood() // Returns a bowl after eating
+                .build(); // Registers the item
 
-        // Oak Log Cabinet
-        addon.cabinet("oak_log_cabinet")
-                .soundType(SoundType.WOOD)
-                .burnTime(300) // The time it takes to burn it inside a furnace (300 ticks)
-                .recipe(b -> b.grid("OOO", "T T", "OOO")
-                        .define('O', "minecraft:oak_log")
-                        .define('T', "minecraft:spruce_trapdoor"))
-                .build();
+        // Example Pie
+        addon.placeableFood("example_pie") // Creates a food item you can place
+                .pie("example_pie_slice") // Makes the pie drop slices when right-clicked with a knife
+                .build(); // Registers the block
+
+        // Example Pie Slice
+        addon.food("example_pie_slice") // Creates a food item
+                .nutrition(6) // Determines how many hunger points it restores
+                .saturation(0.6f) // Sets the hidden value that keeps a player full longer
+                .build(); // Registers the item
+
+        // Example Juice
+        addon.food("example_juice")
+                .nutrition(2) // Determines how many hunger points it restores
+                .saturation(0.2f) // Sets the hidden value that keeps a player full longer
+                .drinkable() // Sets a drinking animation and returns a glass bottle as leftover
+                .alwaysEdible() // Allows to consume this even if the hunger bar is full
+                .build(); // Registers the item
+
+        // Example Crop
+        addon.crop("example_crop") // Creates a new crop, crop seeds, and the crop when planted
+                .asFood(1, 0.1f) // Makes the raw crop edible, first number is nutrition and second is saturation
+                .seedIsItem() // Lets players plant the harvested crop directly instead of using seeds
+                .build(); // Registers the crop
+
+        // Example Cabinet
+        addon.cabinet("example_cabinet") // Creates a cabinet
+                .soundType(SoundType.WOOD) // Plays wood sound when broken
+                .burnTime(300) // Allows the cabinet be used as fuel, 300 ticks equals 15 seconds
+                .recipe(b -> b.grid("O  ", "T T", "OOO") // Defines the exact crafting shape in the crafting table
+                        .define('O', "minecraft:spruce_log") // Tells the game what item the letter O represents
+                        .define('T', "minecraft:spruce_trapdoor")) // Tells the game what item the letter T represents
+                .build(); // Registers the cabinet
 
         addon.build();
     }

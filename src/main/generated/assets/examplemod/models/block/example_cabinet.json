@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "examplemod:block/example_cabinet_front",
+    "side": "examplemod:block/example_cabinet_side",
+    "top": "examplemod:block/example_cabinet_top"
+  }
+}

@@ -50,17 +50,6 @@ repositories {
 	mavenLocal() // Porting Lib (temporary)
 }
 
-loom {
-	splitEnvironmentSourceSets()
-
-	mods {
-		"examplemod" {
-			sourceSet sourceSets.main
-			sourceSet sourceSets.client
-		}
-	}
-}
-
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 
@@ -83,7 +72,7 @@ dependencies {
 	}
 
 	modImplementation "curse.maven:farmers-delight-refabricated-993166:7199661"
-	modImplementation "curse.maven:delight-lib-1531135:8035775"
+	modImplementation 'com.github.axperty:delightlib:468021fe73'
 }
 
 processResources {
