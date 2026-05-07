@@ -1,132 +1,95 @@
 plugins {
-    id 'java-library'
+    id 'net.fabricmc.fabric-loom-remap' version "${loom_version}"
     id 'maven-publish'
-    id 'net.neoforged.moddev' version '2.0.141'
-    id 'idea'
 }
 
-tasks.named('wrapper', Wrapper).configure {
-    distributionType = Wrapper.DistributionType.BIN
-}
-
-version = mod_version
-group = mod_group_id
-
-sourceSets.main.resources {
-    srcDir('src/generated/resources')
-    exclude("**/*.bbmodel")
-    exclude("src/generated/**/.cache")
-}
+version = project.mod_version
+group = project.maven_group
 
 repositories {
-    maven {
-        url "https://cursemaven.com"
-    }
-    maven { url 'https://jitpack.io' }
-}
-
-base {
-    archivesName = mod_id
-}
-
-// Mojang ships Java 21 to end users in 1.21.1, so mods should target Java 21.
-java.toolchain.languageVersion = JavaLanguageVersion.of(21)
-
-neoForge {
-    version = project.neo_version
-
-    parchment {
-        mappingsVersion = project.parchment_mappings_version
-        minecraftVersion = project.parchment_minecraft_version
-    }
-    runs {
-        client {
-            client()
-            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
-        }
-
-        server {
-            server()
-            programArgument '--nogui'
-            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
-        }
-
-        gameTestServer {
-            type = "gameTestServer"
-            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
-        }
-
-        data {
-            data()
-            programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
-        }
-
-        configureEach {
-            systemProperty 'forge.logging.markers', 'REGISTRIES'
-            logLevel = org.slf4j.event.Level.DEBUG
-        }
-    }
-
-    mods {
-        "${mod_id}" {
-            sourceSet(sourceSets.main)
-        }
-    }
-}
-
-configurations {
-    runtimeClasspath.extendsFrom localRuntime
+    maven { url = "https://maven.parchmentmc.org" }
+    maven { url = "https://cursemaven.com" }
+    maven { url = "https://jitpack.io" }
 }
 
 dependencies {
-    implementation "net.neoforged:neoforge:${neo_version}"
-    implementation "curse.maven:farmers-delight-398521:8007613"
-    implementation 'com.github.axperty:delightlib:6c4cae8'
-    //implementation "curse.maven:delight-lib-1531135:8035773"
-}
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
 
-var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
-    var replaceProperties = [
-            minecraft_version      : minecraft_version,
-            minecraft_version_range: minecraft_version_range,
-            neo_version            : neo_version,
-            loader_version_range   : loader_version_range,
-            mod_id                 : mod_id,
-            mod_name               : mod_name,
-            mod_license            : mod_license,
-            mod_version            : mod_version,
-            mod_authors            : mod_authors,
-            mod_description        : mod_description,
-    ]
-    inputs.properties replaceProperties
-    expand replaceProperties
-    from "src/main/templates"
-    into "build/generated/sources/modMetadata"
-}
-
-sourceSets.main.resources.srcDir generateModMetadata
-neoForge.ideSyncTask generateModMetadata
-
-publishing {
-    publications {
-        register('mavenJava', MavenPublication) {
-            from components.java
+    mappings loom.layered() {
+        it.officialMojangMappings {
+            setNameSyntheticMembers(false)
         }
+        it.parchment("org.parchmentmc.data:parchment-${project.parchment_version}")
     }
-    repositories {
-        maven {
-            url "file://${project.projectDir}/repo"
-        }
+
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+    modImplementation "curse.maven:farmers-delight-refabricated-993166:7919003"
+    modImplementation 'com.github.axperty:delightlib:4761557c18'
+}
+
+def expandProps = [
+        "mod_version": project.mod_version,
+        "mod_id": project.mod_id,
+        "mod_name": project.mod_name,
+        "mod_description": project.mod_description,
+        "mod_authors": project.mod_authors,
+        "mod_license": project.mod_license
+]
+
+processResources {
+    inputs.properties(expandProps)
+
+    filesMatching("fabric.mod.json") {
+        expand(expandProps)
     }
 }
 
 tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8'
+    it.options.release = 21
 }
 
-idea {
-    module {
-        downloadSources = true
-        downloadJavadoc = true
+java {
+    withSourcesJar()
+
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+jar {
+    def projectName = project.name
+    inputs.property "projectName", projectName
+
+    from("LICENSE") {
+        rename { "${it}_$projectName"}
+    }
+}
+
+// configure the maven publication
+publishing {
+    publications {
+        create("mavenJava", MavenPublication) {
+            from components.java
+        }
+    }
+
+    // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
+    repositories {
+        // Add repositories to publish to here.
+        // Notice: This block does NOT have the same function as the block in the top level.
+        // The repositories here will be used for publishing your artifact, not for
+        // retrieving dependencies.
+    }
+}
+
+fabricApi {
+    configureDataGeneration()
+}
+
+loom {
+    runs {
+        named("datagen") {
+            vmArg "-Dfabric-api.datagen.modid=examplemod"
+        }
     }
 }

@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${mod_version}",
+  "name": "${mod_name}",
+  "description": "${mod_description}",
+  "authors": [
+    "${mod_authors}"
+  ],
+  "contact": {
+    "sources": "https://yourwebsite.com/"
+  },
+  "license": "${mod_license}",
+  "icon": "assets/${mod_id}/logo.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "com.example.examplemod.ExampleModDataGeneration"
+    ],
+    "main": [
+      "com.example.examplemod.ExampleMod"
+    ],
+    "client": [
+      "com.example.examplemod.ExampleModClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.2",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "fabric-api": "*",
+    "farmersdelight": "*",
+    "delightlib": "*"
+  }
+}

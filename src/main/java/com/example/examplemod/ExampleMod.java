@@ -1,27 +1,20 @@
 package com.example.examplemod;
 
 import com.axperty.delightlib.api.DelightAddon;
+import net.fabricmc.api.ModInitializer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tiers;
 import net.minecraft.world.level.block.SoundType;
 
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.fml.ModContainer;
-import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-
-@Mod(ExampleMod.MOD_ID)
-public class ExampleMod {
+public class ExampleMod implements ModInitializer {
     public static final String MOD_ID = "examplemod";
     public static DelightAddon addon;
 
-    public ExampleMod(IEventBus bus, ModContainer modContainer)
-    {
-        bus.addListener(this::commonSetup);
-
+    @Override
+    public void onInitialize() {
         // Creative Tab Registry
-        addon = DelightAddon.create(MOD_ID, bus) // Creates the creative tab
+        addon = DelightAddon.create(MOD_ID) // Creates the creative tab
                 .withCreativeTab("Example Mod", // Sets the add-on name in the creative tab
                         () -> new ItemStack(Items.BREAD)); // Sets a bread item icon
 
@@ -56,7 +49,7 @@ public class ExampleMod {
         // Example Feast
         addon.placeableFood("example_feast") // Creates a food item you can place
                 .feast("example_feast_serving") // Makes the feast drop servings when right-clicked
-                .feastOutput("minecraft:bone") // Sets the item dropped when the feast has no more servings, leave it empty to disable.
+                .feastOutput("minecraft:bone_meal")
                 .build(); // Registers the block
 
         // Example Feast Serving
@@ -99,7 +92,7 @@ public class ExampleMod {
                         .define('O', "minecraft:spruce_log") // Tells the game what item the letter O represents
                         .define('T', "minecraft:spruce_trapdoor")) // Tells the game what item the letter T represents
                 .build(); // Registers the cabinet
-    }
 
-    private void commonSetup(final FMLCommonSetupEvent event) {}
+        addon.build();
+    }
 }
