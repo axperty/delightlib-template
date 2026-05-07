@@ -55,8 +55,8 @@ public class ExampleMod {
 
         // Example Feast
         addon.placeableFood("example_feast") // Creates a food item you can place
-                .feast("example_feast_serving", false) // Makes the feast drop servings when right-clicked, 'true' means a container block is left behind
-                .feastOutput("minecraft:bone_meal")
+                .feast("example_feast_serving") // Makes the feast drop servings when right-clicked
+                .feastOutput("minecraft:bone") // Sets the item dropped when the feast has no more servings, leave it empty to disable.
                 .build(); // Registers the block
 
         // Example Feast Serving

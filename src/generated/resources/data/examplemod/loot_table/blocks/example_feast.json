@@ -59,7 +59,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:bone_meal"
+          "name": "examplemod:example_feast_serving"
         }
       ],
       "rolls": 1.0

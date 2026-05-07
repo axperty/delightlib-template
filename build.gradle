@@ -81,7 +81,7 @@ configurations {
 dependencies {
     implementation "net.neoforged:neoforge:${neo_version}"
     implementation "curse.maven:farmers-delight-398521:8007613"
-    implementation 'com.github.axperty:delightlib:ca3fd14597'
+    implementation 'com.github.axperty:delightlib:6c4cae8'
     //implementation "curse.maven:delight-lib-1531135:8035773"
 }
 
