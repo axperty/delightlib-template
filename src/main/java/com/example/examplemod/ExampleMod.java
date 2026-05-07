@@ -48,7 +48,7 @@ public class ExampleMod implements ModInitializer {
 
         // Example Feast
         addon.placeableFood("example_feast") // Creates a food item you can place
-                .feast("example_feast_serving", true) // Makes the feast drop servings when right-clicked, 'true' means a container block is left behind
+                .feast("example_feast_serving") // Makes the feast drop servings when right-clicked
                 .feastOutput("minecraft:bone_meal")
                 .build(); // Registers the block
 

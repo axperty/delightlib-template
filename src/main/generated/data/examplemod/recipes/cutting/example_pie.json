@@ -9,17 +9,11 @@
     {
       "item": {
         "count": 4,
-        "id": "examplemod:example_pie_slice"
+        "item": "examplemod:example_pie_slice"
       }
     }
   ],
-  "tool": [
-    {
-      "type": "farmersdelight:item_ability",
-      "action": "knife_dig"
-    },
-    {
-      "tag": "c:tools/knife"
-    }
-  ]
+  "tool": {
+    "tag": "c:tools/knife"
+  }
 }
