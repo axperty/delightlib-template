@@ -33,7 +33,7 @@ public class ExampleMod implements ModInitializer {
 
         // Example Stew Cooking Pot Recipe
         addon.cookingRecipe("example_stew") // Creates a new recipe for the cooking pot
-                .addIngredient("minecraft:cooked_beef") // Adds a required ingredient
+                .addIngredient("minecraft:onion") // Adds a required ingredient
                 .addIngredient("minecraft:carrot") // Adds a second required ingredient
                 .addIngredient("minecraft:potato") // Adds a third required ingredient
 
