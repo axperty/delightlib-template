@@ -22,6 +22,7 @@ eclipse
 .idea
 run
 runs
+run-data
 
 # Files from Forge MDK
 forge*changelog.txt

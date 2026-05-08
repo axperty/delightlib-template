@@ -7,6 +7,7 @@ import net.minecraft.world.item.Tiers;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod(ExampleMod.MOD_ID)
@@ -14,8 +15,9 @@ public class ExampleMod {
     public static final String MOD_ID = "examplemod";
     public static DelightAddon addon;
 
-    public ExampleMod() {
-        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+    public ExampleMod(FMLJavaModLoadingContext context) {
+        IEventBus bus = context.getModEventBus();
+        bus.addListener(this::setup);
 
         // Creative Tab Registry
         addon = DelightAddon.create(MOD_ID, bus) // Creates the creative tab
@@ -37,7 +39,7 @@ public class ExampleMod {
 
         // Example Stew Cooking Pot Recipe
         addon.cookingRecipe("example_stew") // Creates a new recipe for the cooking pot
-                .addIngredient("minecraft:cooked_beef") // Adds a required ingredient
+                .addIngredient("farmersdelight:onion") // Adds a required ingredient
                 .addIngredient("minecraft:carrot") // Adds a second required ingredient
                 .addIngredient("minecraft:potato") // Adds a third required ingredient
 
@@ -46,13 +48,13 @@ public class ExampleMod {
                 .result("examplemod:example_stew") // Sets the final item you receive when cooking finishes
                 .container("minecraft:bowl") // Requires a specific container to hold the cooked item
                 .experience(1.0f) // Amount of XP received after cooking
-                .cookingTime(200) // Sets the cook duration in ticks, 200 ticks equals 10 seconds
+                .cookingTime(900) // Sets the cook duration in ticks, 200 ticks equals 10 seconds
                 .recipeBookTab("meals") // Places this recipe into the meals category in the recipe book
                 .build(); // Registers the recipe
 
         // Example Feast
         addon.placeableFood("example_feast") // Creates a food item you can place
-                .feast("example_feast_serving", false) // Makes the feast drop servings when right-clicked, 'true' means a container block is left behind
+                .feast("example_feast_serving") // Makes the feast drop servings when right-clicked
                 .feastOutput("minecraft:bone_meal")
                 .build(); // Registers the block
 
@@ -75,12 +77,20 @@ public class ExampleMod {
                 .build(); // Registers the item
 
         // Example Juice
-        addon.food("example_juice")
+        addon.food("example_juice") // Creates a food item
                 .nutrition(2) // Determines how many hunger points it restores
                 .saturation(0.2f) // Sets the hidden value that keeps a player full longer
                 .drinkable() // Sets a drinking animation and returns a glass bottle as leftover
                 .alwaysEdible() // Allows to consume this even if the hunger bar is full
                 .build(); // Registers the item
+
+        // Example Juice Crafting Table Recipe
+        addon.shapelessRecipe("example_juice") // Creates a shapeless recipe
+                .addIngredient("minecraft:apple") // Adds a required ingredient
+                .addIngredient("minecraft:apple") // Adds a second required ingredient
+                .addIngredient("minecraft:glass_bottle") // Adds a third required ingredient
+                .result("examplemod:example_juice", 2) // Sets the final item you receive and the amount
+                .build(); // Registers the recipe
 
         // Example Crop
         addon.crop("example_crop") // Creates a new crop, crop seeds, and the crop when planted
@@ -97,4 +107,6 @@ public class ExampleMod {
                         .define('T', "minecraft:spruce_trapdoor")) // Tells the game what item the letter T represents
                 .build(); // Registers the cabinet
     }
+
+    private void setup(final FMLCommonSetupEvent event) {}
 }

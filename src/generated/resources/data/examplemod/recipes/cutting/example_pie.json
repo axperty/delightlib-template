@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "examplemod:example_pie"
+    }
+  ],
+  "result": [
+    {
+      "count": 4,
+      "item": "examplemod:example_pie_slice"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}
