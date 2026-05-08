@@ -48,7 +48,7 @@ public class ExampleMod {
                 .result("examplemod:example_stew") // Sets the final item you receive when cooking finishes
                 .container("minecraft:bowl") // Requires a specific container to hold the cooked item
                 .experience(1.0f) // Amount of XP received after cooking
-                .cookingTime(900) // Sets the cook duration in ticks, 200 ticks equals 10 seconds
+                .cookingTime(200) // Sets the cook duration in ticks, 200 ticks equals 10 seconds
                 .recipeBookTab("meals") // Places this recipe into the meals category in the recipe book
                 .build(); // Registers the recipe
 
