@@ -72,8 +72,7 @@ dependencies {
 	}
 
 	modImplementation "curse.maven:farmers-delight-refabricated-993166:7199661"
-	//modImplementation "curse.maven:delight-lib-1531135:8050818"
-	modImplementation 'com.github.axperty:delightlib:c225fceea3'
+	modImplementation "curse.maven:delight-lib-1531135:8054530"
 }
 
 processResources {

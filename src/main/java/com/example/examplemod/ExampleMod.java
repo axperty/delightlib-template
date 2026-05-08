@@ -33,7 +33,7 @@ public class ExampleMod implements ModInitializer {
 
         // Example Stew Cooking Pot Recipe
         addon.cookingRecipe("example_stew") // Creates a new recipe for the cooking pot
-                .addIngredient("minecraft:onion") // Adds a required ingredient
+                .addIngredient("farmersdelight:onion") // Adds a required ingredient
                 .addIngredient("minecraft:carrot") // Adds a second required ingredient
                 .addIngredient("minecraft:potato") // Adds a third required ingredient
 
@@ -71,12 +71,20 @@ public class ExampleMod implements ModInitializer {
                 .build(); // Registers the item
 
         // Example Juice
-        addon.food("example_juice")
+        addon.food("example_juice") // Creates a food item
                 .nutrition(2) // Determines how many hunger points it restores
                 .saturation(0.2f) // Sets the hidden value that keeps a player full longer
                 .drinkable() // Sets a drinking animation and returns a glass bottle as leftover
                 .alwaysEdible() // Allows to consume this even if the hunger bar is full
                 .build(); // Registers the item
+
+        // Example Juice Crafting Table Recipe
+        addon.shapelessRecipe("example_juice") // Creates a shapeless recipe
+                .addIngredient("minecraft:apple") // Adds a required ingredient
+                .addIngredient("minecraft:apple") // Adds a second required ingredient
+                .addIngredient("minecraft:glass_bottle") // Adds a third required ingredient
+                .result("examplemod:example_juice", 2) // Sets the final item you receive and the amount
+                .build(); // Registers the recipe
 
         // Example Crop
         addon.crop("example_crop") // Creates a new crop, crop seeds, and the crop when planted
