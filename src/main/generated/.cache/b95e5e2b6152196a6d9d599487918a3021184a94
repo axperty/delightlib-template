@@ -1,7 +1,8 @@
-// 1.21.1	2026-05-07T01:43:12.369015	Example Mod/Delight Lib: examplemod
+// 1.21.1	2026-05-08T00:47:10.445474	Example Mod/Delight Lib: examplemod
 09877fd9f60bd11215ee66669d6685361511334e assets\examplemod\models\item\example_feast_serving.json
 42394fb115a6938fa75a7f63d2baa0390139a7ec assets\examplemod\blockstates\example_pie.json
 f871b15c4f2650a1b09390239f0d864d9ed11901 data\c\tags\item\tools\knife.json
+33d77b66721cd6f623f2bd6f018f7046abaf5d45 data\examplemod\recipe\example_juice.json
 0a2c920ca69cde48c07418929b6bef28d1319dfd data\examplemod\loot_table\blocks\example_crop_crop.json
 c3577b742be0108374b7b122567c71c663812b96 assets\examplemod\models\block\example_crop_crop_stage0.json
 0f27cf1e18a3cc9cd9bb4e21184a23a9095ea723 assets\examplemod\models\item\example_knife.json
@@ -30,7 +31,7 @@ e9320b0eaa6237fb0187b2db1623bffb7abd088b assets\examplemod\models\item\example_s
 85e92743e9cc955d977a5d478cd292a0f256816c data\examplemod\recipe\cutting\example_pie.json
 f871b15c4f2650a1b09390239f0d864d9ed11901 data\farmersdelight\tags\item\tools\knives.json
 f449974e0e2f0b89ed55b393e6e53a2ba7a41290 assets\examplemod\models\item\example_cabinet.json
-e6bc03cf238f5cbf294ffcb6cdbeec270a829229 data\examplemod\recipe\cooking\example_stew.json
+6f9aedd0885ac55de37ad003c0c0be734af2204f data\examplemod\recipe\cooking\example_stew.json
 f947ff6d32848f1480a6735a90060f8d8a202f06 data\farmersdelight\tags\item\cabinets.json
 551de948bc5124ba3a719bc99ace0c400d5edb7a assets\examplemod\models\item\example_pie_slice.json
 f947ff6d32848f1480a6735a90060f8d8a202f06 data\minecraft\tags\block\mineable\axe.json

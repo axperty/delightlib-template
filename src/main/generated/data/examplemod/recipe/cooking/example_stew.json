@@ -7,7 +7,7 @@
   "experience": 1.0,
   "ingredients": [
     {
-      "item": "minecraft:cooked_beef"
+      "item": "farmersdelight:onion"
     },
     {
       "item": "minecraft:carrot"
