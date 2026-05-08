@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
-  "id": "examplemod",
-  "version": "0.0.1",
-  "name": "Example Mod",
-  "description": "A Farmer's Delight add-on!",
+  "id": "${mod_id}",
+  "version": "${mod_version}",
+  "name": "${mod_name}",
+  "description": "${mod_description}",
   "authors": [
-    "Example"
+    "${mod_authors}"
   ],
   "contact": {
     "sources": "https://yourwebsite.com/"
   },
-  "license": "MIT",
-  "icon": "assets/examplemod/logo.png",
+  "license": "${mod_license}",
+  "icon": "assets/${mod_id}/logo.png",
   "environment": "*",
   "entrypoints": {
     "fabric-datagen": [
