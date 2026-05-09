@@ -1,9 +1,9 @@
 {
-  "block.examplemod.example_cabinet": "Example Cabinet",
   "block.examplemod.example_crop_crop": "Example Crop Crop",
   "block.examplemod.example_feast": "Example Feast",
   "block.examplemod.example_pie": "Example Pie",
   "container.examplemod.example_cabinet": "Example Cabinet",
+  "item.examplemod.example_cabinet": "Example Cabinet",
   "item.examplemod.example_crop": "Example Crop",
   "item.examplemod.example_feast": "Example Feast",
   "item.examplemod.example_feast_serving": "Example Feast Serving",

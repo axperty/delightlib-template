@@ -4,17 +4,12 @@
     "count": 1,
     "id": "minecraft:bowl"
   },
+  "cookingtime": 900,
   "experience": 1.0,
   "ingredients": [
-    {
-      "item": "farmersdelight:onion"
-    },
-    {
-      "item": "minecraft:carrot"
-    },
-    {
-      "item": "minecraft:potato"
-    }
+    "farmersdelight:onion",
+    "minecraft:carrot",
+    "minecraft:potato"
   ],
   "recipe_book_tab": "meals",
   "result": {
