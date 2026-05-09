@@ -1,0 +1,15 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    "examplemod:example_pie"
+  ],
+  "result": [
+    {
+      "item": {
+        "count": 4,
+        "id": "examplemod:example_pie_slice"
+      }
+    }
+  ],
+  "tool": "#c:tools/knife"
+}
