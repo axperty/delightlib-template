@@ -42,14 +42,14 @@ public class ExampleMod implements ModInitializer {
                 .result("examplemod:example_stew") // Sets the final item you receive when cooking finishes
                 .container("minecraft:bowl") // Requires a specific container to hold the cooked item
                 .experience(1.0f) // Amount of XP received after cooking
-                .cookingTime(900) // Sets the cook duration in ticks, 200 ticks equals 10 seconds
+                .cookingTime(200) // Sets the cook duration in ticks, 200 ticks equals 10 seconds
                 .recipeBookTab("meals") // Places this recipe into the meals category in the recipe book
                 .build(); // Registers the recipe
 
         // Example Feast
         addon.placeableFood("example_feast") // Creates a food item you can place
                 .feast("example_feast_serving") // Makes the feast drop servings when right-clicked
-                .feastOutput("minecraft:bedrock")
+                .feastOutput("minecraft:bone_meal") // Sets the item dropped when the feast has no more servings, leave it empty to disable.
                 .build(); // Registers the block
 
         // Example Feast Serving
