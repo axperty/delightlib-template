@@ -7,13 +7,11 @@
   ],
   "result": [
     {
-      "item": {
-        "count": 4,
-        "item": "examplemod:example_pie_slice"
-      }
+      "count": 4,
+      "item": "examplemod:example_pie_slice"
     }
   ],
   "tool": {
-    "tag": "c:tools/knife"
+    "tag": "c:tools/knives"
   }
 }
