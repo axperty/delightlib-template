@@ -51,7 +51,7 @@ public class ExampleMod implements ModInitializer {
                 .feast(addon.food("example_feast_serving") // Creates the serving food item
                         .nutrition(6) // Determines how many hunger points it restores
                         .saturation(0.6f) // Sets the hidden value that keeps a player full longer
-                        .bowlFood()) // PR CHANGE: The new logic automatically fixes the max stack size for bowl foods to 16.
+                        .bowlFood()) // Returns a bowl after eating
                 .feastOutput("minecraft:bone_meal") // Sets the item dropped when the feast has no more servings, leave it empty to disable.
                 .build(); // Registers the block
 
