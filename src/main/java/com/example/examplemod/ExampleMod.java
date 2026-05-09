@@ -55,33 +55,25 @@ public class ExampleMod {
 
         // Example Feast
         addon.placeableFood("example_feast") // Creates a food item you can place
-                .feast("example_feast_serving") // Makes the feast drop servings when right-clicked
-                .feastOutput("minecraft:bone_meal")
+                .feast(addon.food("example_feast_serving") // Creates the serving food item
+                        .nutrition(6) // Determines how many hunger points it restores
+                        .saturation(0.6f) // Sets the hidden value that keeps a player full longer
+                        .bowlFood()) // Returns a bowl after eating
+                .feastOutput("minecraft:bone_meal") // Sets the item dropped when the feast has no more servings, leave it empty to disable.
                 .build(); // Registers the block
-
-        // Example Feast Serving
-        addon.food("example_feast_serving") // Creates a food item
-                .nutrition(6) // Determines how many hunger points it restores
-                .saturation(0.6f) // Sets the hidden value that keeps a player full longer
-                .bowlFood() // Returns a bowl after eating
-                .build(); // Registers the item
 
         // Example Pie
         addon.placeableFood("example_pie") // Creates a food item you can place
-                .pie("example_pie_slice") // Makes the pie drop slices when right-clicked with a knife
+                .pie(addon.food("example_pie_slice") // Makes the pie drop slices when right-clicked with a knife
+                        .nutrition(6) // Determines how many hunger points it restores
+                        .saturation(0.6f)) // Sets the hidden value that keeps a player full longer
                 .build(); // Registers the block
-
-        // Example Pie Slice
-        addon.food("example_pie_slice") // Creates a food item
-                .nutrition(6) // Determines how many hunger points it restores
-                .saturation(0.6f) // Sets the hidden value that keeps a player full longer
-                .build(); // Registers the item
 
         // Example Juice
         addon.food("example_juice") // Creates a food item
                 .nutrition(2) // Determines how many hunger points it restores
                 .saturation(0.2f) // Sets the hidden value that keeps a player full longer
-                .drinkable() // Sets a drinking animation and returns a glass bottle as leftover
+                .drinkable() // Sets a drinking animation and returns a glass bottle as leftover.
                 .alwaysEdible() // Allows to consume this even if the hunger bar is full
                 .build(); // Registers the item
 
@@ -96,11 +88,11 @@ public class ExampleMod {
         // Example Crop
         addon.crop("example_crop") // Creates a new crop, crop seeds, and the crop when planted
                 .asFood(1, 0.1f) // Makes the raw crop edible, first number is nutrition and second is saturation
-                .seedIsItem() // Lets players plant the harvested crop directly instead of using seeds
+                .seedIsItem() // Allows to plant the harvested crop directly instead of using seeds.
                 .build(); // Registers the crop
 
         // Example Cabinet
-        addon.cabinet("example_cabinet") // Creates a cabinet
+        addon.cabinet("example_cabinet") // Creates a cabinet.
                 .soundType(SoundType.WOOD) // Plays wood sound when broken
                 .burnTime(300) // Allows the cabinet be used as fuel, 300 ticks equals 15 seconds
                 .recipe(b -> b.grid("O  ", "T T", "OOO") // Defines the exact crafting shape in the crafting table

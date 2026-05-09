@@ -1,4 +1,5 @@
 {
+  "replace": false,
   "values": [
     "examplemod:example_cabinet"
   ]
