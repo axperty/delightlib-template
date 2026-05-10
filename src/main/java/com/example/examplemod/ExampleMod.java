@@ -14,14 +14,14 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 @Mod(ExampleMod.MOD_ID)
 public class ExampleMod {
     public static final String MOD_ID = "examplemod";
-    public static DelightAddon addon;
+    public static DelightApi addon;
 
     public ExampleMod(FMLJavaModLoadingContext context) {
         IEventBus bus = context.getModEventBus();
         bus.addListener(this::setup);
 
         // Creative Tab Registry
-        DelightApi addon = DelightApi.create(MOD_ID, bus) // Creates the creative tab
+        addon = DelightApi.create(MOD_ID, bus) // Creates the creative tab
                 .withCreativeTab("Example Mod", // Sets the add-on name in the creative tab
                         () -> new ItemStack(Items.BREAD)); // Sets a bread item icon
 
@@ -74,7 +74,7 @@ public class ExampleMod {
                 .nutrition(2) // Determines how many hunger points it restores
                 .saturation(0.2f) // Sets the hidden value that keeps a player full longer
                 .drinkable() // Sets a drinking animation and returns a glass bottle as leftover.
-                .alwaysEat() // Allows to consume this even if the hunger bar is full
+                .alwaysEdible() // Allows to consume this even if the hunger bar is full
                 .build(); // Registers the item
 
         // Example Juice Crafting Table Recipe
