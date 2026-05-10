@@ -1,6 +1,7 @@
 package com.example.examplemod;
 
 import com.axperty.delightlib.api.DelightAddon;
+import com.axperty.delightlib.api.DelightApi;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tiers;
@@ -20,7 +21,7 @@ public class ExampleMod {
         bus.addListener(this::setup);
 
         // Creative Tab Registry
-        addon = DelightAddon.create(MOD_ID, bus) // Creates the creative tab
+        DelightApi addon = DelightApi.create(MOD_ID, bus) // Creates the creative tab
                 .withCreativeTab("Example Mod", // Sets the add-on name in the creative tab
                         () -> new ItemStack(Items.BREAD)); // Sets a bread item icon
 
@@ -73,7 +74,7 @@ public class ExampleMod {
                 .nutrition(2) // Determines how many hunger points it restores
                 .saturation(0.2f) // Sets the hidden value that keeps a player full longer
                 .drinkable() // Sets a drinking animation and returns a glass bottle as leftover.
-                .alwaysEdible() // Allows to consume this even if the hunger bar is full
+                .alwaysEat() // Allows to consume this even if the hunger bar is full
                 .build(); // Registers the item
 
         // Example Juice Crafting Table Recipe
