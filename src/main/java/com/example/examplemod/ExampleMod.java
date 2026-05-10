@@ -1,6 +1,7 @@
 package com.example.examplemod;
 
 import com.axperty.delightlib.api.DelightAddon;
+import com.axperty.delightlib.api.DelightApi;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tiers;
@@ -14,14 +15,14 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 @Mod(ExampleMod.MOD_ID)
 public class ExampleMod {
     public static final String MOD_ID = "examplemod";
-    public static DelightAddon addon;
+    public static DelightApi addon;
 
     public ExampleMod(IEventBus bus, ModContainer modContainer)
     {
         bus.addListener(this::commonSetup);
 
         // Creative Tab Registry
-        addon = DelightAddon.create(MOD_ID, bus) // Creates the creative tab
+        addon = DelightApi.create(MOD_ID, bus) // Creates the creative tab
                 .withCreativeTab("Example Mod", // Sets the add-on name in the creative tab
                         () -> new ItemStack(Items.BREAD)); // Sets a bread item icon
 
