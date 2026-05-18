@@ -1,6 +1,7 @@
 package com.example.examplemod;
 
 import com.axperty.delightlib.api.DelightAddon;
+import com.axperty.delightlib.api.DelightApi;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -9,7 +10,7 @@ import net.minecraft.world.level.block.SoundType;
 
 public class ExampleMod implements ModInitializer {
     public static final String MOD_ID = "examplemod";
-    public static DelightAddon addon;
+    public static DelightApi addon;
 
     @Override
     public void onInitialize() {
@@ -48,7 +49,7 @@ public class ExampleMod implements ModInitializer {
 
         // Example Feast
         addon.placeableFood("example_feast") // Creates a food item you can place
-                .feast(addon.food("example_feast_serving") // Creates the serving food item
+                .feast(addon.food("example_feast_serving") // Sets the placeable food item as feast and creates the serving item
                         .nutrition(6) // Determines how many hunger points it restores
                         .saturation(0.6f) // Sets the hidden value that keeps a player full longer
                         .bowlFood()) // Returns a bowl after eating
@@ -57,7 +58,7 @@ public class ExampleMod implements ModInitializer {
 
         // Example Pie
         addon.placeableFood("example_pie") // Creates a food item you can place
-                .pie(addon.food("example_pie_slice") // Makes the pie drop slices when right-clicked with a knife
+                .pie(addon.food("example_pie_slice") // // Sets the placeable food item as pie and creates the serving item
                         .nutrition(6) // Determines how many hunger points it restores
                         .saturation(0.6f)) // Sets the hidden value that keeps a player full longer
                 .build(); // Registers the block
