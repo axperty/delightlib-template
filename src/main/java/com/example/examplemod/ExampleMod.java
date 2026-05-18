@@ -1,6 +1,7 @@
 package com.example.examplemod;
 
 import com.axperty.delightlib.api.DelightAddon;
+import com.axperty.delightlib.api.DelightApi;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -9,7 +10,7 @@ import net.minecraft.world.level.block.SoundType;
 
 public class ExampleMod implements ModInitializer {
     public static final String MOD_ID = "examplemod";
-    public static DelightAddon addon;
+    public static DelightApi addon;
 
     @Override
     public void onInitialize() {
