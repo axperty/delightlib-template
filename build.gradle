@@ -72,7 +72,7 @@ dependencies {
 	}
 
 	modImplementation "curse.maven:farmers-delight-refabricated-993166:7199661"
-	modImplementation "com.github.axperty:delightlib:7d7b06cb98"
+	modImplementation "com.github.axperty:delightlib:2ee3ade859"
 }
 
 def expandProps = [
