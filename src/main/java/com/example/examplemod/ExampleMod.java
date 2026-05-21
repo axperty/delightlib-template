@@ -5,7 +5,7 @@ import com.axperty.delightlib.api.DelightApi;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.Tiers;
+import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.level.block.SoundType;
 
 public class ExampleMod implements ModInitializer {
@@ -20,7 +20,7 @@ public class ExampleMod implements ModInitializer {
                         () -> new ItemStack(Items.BREAD)); // Sets a bread item icon
 
         // Example Knife
-        addon.knife("example_knife", Tiers.DIAMOND) // Creates a knife with diamond stats
+        addon.knife("example_knife", ToolMaterial.DIAMOND) // Creates a knife with diamond stats
                 .attackDamage(1.5f) // Adds extra damage to the base knife damage
                 .attackSpeed(-1.8f) // Sets how fast the weapon swings, negative numbers mean it's slower than an empty hand
                 .fireResistant() // Prevents the item from burning up when dropped into lava or fire
